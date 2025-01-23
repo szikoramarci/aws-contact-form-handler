@@ -1,0 +1,26 @@
+{
+    "name": "aws-contact-form-handler",
+    "version": "1.0.0",
+    "description": "A Lambda function for handling contact form using Amazon SES.",
+    "main": "index.mjs",
+    "type": "module",
+    "scripts": {
+        "start": "node index.mjs",
+        "build": "zip -r function.zip . -x 'node_modules/*'"
+    },
+    "keywords": [
+        "AWS",
+        "Lambda",
+        "SES",
+        "email",
+        "forwarding"
+    ],
+    "author": "Marcell Szikora <szikora.marcell@webness.hu>",
+    "license": "MIT",
+    "dependencies": {
+        "@aws-sdk/client-ses": "3.731.1",
+    },
+    "engines": {
+        "node": ">=14.x"
+    }
+}
