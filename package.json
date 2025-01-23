@@ -18,7 +18,7 @@
     "author": "Marcell Szikora <szikora.marcell@webness.hu>",
     "license": "MIT",
     "dependencies": {
-        "@aws-sdk/client-ses": "3.731.1",
+        "@aws-sdk/client-ses": "3.731.1"
     },
     "engines": {
         "node": ">=14.x"
