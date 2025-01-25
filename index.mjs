@@ -10,20 +10,17 @@ export const handler = async (event) => {
   if (!name || !email || !message) {
     return {
       statusCode: 400, // Bad Request
-      headers: {
-        'Access-Control-Allow-Origin': '*', // CORS támogatás
-      },
       body: JSON.stringify({ error: 'Missing required fields: name, email, or message' }),
     };
   }
 
   console.log(`Processing message from ${name} (${email}): ${message}`);
 
-  // SES paraméterek
+  // SES parameters
   const params = {
-    Source: 'hello@marcell.solutions', // Az SES-ben verifikált email címed
+    Source: 'hello@marcell.solutions', // A SES verified email address
     Destination: {
-      ToAddresses: ['simabeats@gmail.com'], // Címzett email címe
+      ToAddresses: ['simabeats@gmail.com'], // Recipient email address
     },
     Message: {
       Subject: { Data: `New Message from ${name}` },
@@ -33,10 +30,10 @@ export const handler = async (event) => {
     },
   };
 
-  // E-mail küldése
+  // Sending email
   const sendingResult = await ses.send(new SendEmailCommand(params));
   
-  // Példa válasz
+  // Success response
   return {
     statusCode: 200,
     body: 'Message has been sent successfully!',
